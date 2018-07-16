@@ -173,6 +173,7 @@ class BaseJob(Base, LoggingMixin):
 
         # Don't keep session open while sleeping as it leaves a connection open
         session.close()
+        self.logger.info('Sleeping for %s seconds', sleep_for)
         sleep(sleep_for)
 
         # Update last heartbeat time
